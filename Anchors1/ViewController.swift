@@ -28,6 +28,7 @@
             tableView.estimatedRowHeight = 110
             tableView.keyboardDismissMode = .onDrag
             tableView.backgroundColor = .clear
+            tableView.layer.cornerRadius = 10
             view.backgroundColor = .darkGray
     
             return tableView
@@ -79,16 +80,18 @@
     
     func setupConstraints() {
         NSLayoutConstraint.activate([
-            navBar.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            navBar.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            
+            
+            navBar.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 0 ),
+            navBar.centerYAnchor.constraint(equalTo: view.centerYAnchor , constant: 0 ),
             navBar.widthAnchor.constraint(equalTo: view.widthAnchor),
-            navBar.heightAnchor.constraint(equalTo: view.heightAnchor),
-            navBar.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 30),
+            navBar.heightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.heightAnchor, constant: -50),
+            //navBar.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 30),
 
 
             tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 100),
-            tableView.leftAnchor.constraint(equalTo: view.leftAnchor),
-            tableView.rightAnchor.constraint(equalTo: view.rightAnchor),
+            tableView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 10),
+            tableView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -10),
             tableView.bottomAnchor.constraint(equalTo:view.safeAreaLayoutGuide.bottomAnchor),
         ])
     }
