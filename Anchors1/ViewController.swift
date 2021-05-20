@@ -12,11 +12,10 @@
        navBar.backgroundColor = .darkGray
        navBar.setItems([navItem], animated: false)
        navBar.translatesAutoresizingMaskIntoConstraints =  false
-       return navBar
+       
+        return navBar
     }()
-    
 
-    
    lazy var tableView: UITableView = {
        let tableView = UITableView(frame: .zero, style: .plain)
             tableView.register(TableViewCell.self, forCellReuseIdentifier: "TableViewCell")
@@ -31,7 +30,7 @@
             tableView.backgroundColor = .clear
             view.backgroundColor = .darkGray
     
-        return tableView
+            return tableView
     }()
     
     override func viewDidLoad() {
@@ -43,7 +42,6 @@
         
         getFund()
     }
-    
     
     func getFund() {
         startLoading() // abrindo alerta
@@ -74,14 +72,11 @@
         SVProgressHUD.dismiss()
     }
     
-    
-    // MARK: - Custom Methods
     func createSubviews() {
         view.addSubview(navBar)
         view.addSubview(tableView)
-    
-        
     }
+    
     func setupConstraints() {
         NSLayoutConstraint.activate([
             navBar.centerXAnchor.constraint(equalTo: view.centerXAnchor),
@@ -94,9 +89,7 @@
             tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 100),
             tableView.leftAnchor.constraint(equalTo: view.leftAnchor),
             tableView.rightAnchor.constraint(equalTo: view.rightAnchor),
-            tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
-
-
+            tableView.bottomAnchor.constraint(equalTo:view.safeAreaLayoutGuide.bottomAnchor),
         ])
     }
 
@@ -107,13 +100,11 @@
      func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
          return 6
      }
-     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let fund = self.fund else { // verifcando se tem informação
             return TableViewCell()
         }
-        
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "TableViewCell", for: indexPath) as! TableViewCell // criando a table view cell
          
